@@ -1,0 +1,6 @@
+./src/templates/*
+*.md
+*.json
+*.njk
+*.toml
+*.js
