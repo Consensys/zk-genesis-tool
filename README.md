@@ -1,4 +1,4 @@
-# Quorum Genesis Tool
+# ZK Genesis Tool
 
 ## Table of Contents
 
@@ -12,37 +12,29 @@
 
 ## Usage
 
-**NOTE**: Where possible, based on the consensus algortithm selected, the Quorum Genesis Tool will create keys and genesis files for both HLF Besu and GoQuorum and you can pick the one you'd like to use. At present only **QBFT** has cross client compatibility.
+**NOTE**: Where possible, based on the consensus algorithm selected, the Zk Genesis Tool will create keys and genesis files for both HLF Besu and Geth and you can pick the one you'd like to use. At present only **QBFT** has cross client compatibility.
 
 ### Generation of Keys
 
 Create the artifacts with:
 
 ```bash
-npx quorum-genesis-tool
+npx zk-genesis-tool
+  ____  __ __               
+ /_  / / //_/               
+  / /_/ ,<                  
+ /___/_/|_|             _   
+ / ___/__ ___  ___ ___ (_)__
+/ (_ / -_) _ \/ -_|_-</ (_-<
+\___/\__/_//_/\__/___/_/___/
+/_  __/__  ___  / /         
+ / / / _ \/ _ \/ /          
+/_/  \___/\___/_/        
 
-   ___
-  / _ \  _   _   ___   _ __  _   _  _ __ ___
- | | | || | | | / _ \ | '__|| | | || '_'  _  \
- | |_| || |_| || (_) || |   | |_| || | | | | |
-  \__\_\ \__,_| \___/ |_|    \__,_||_| |_| |_|
+Welcome to the ZK Genesis Tool. This tool can be used
+to rapidly generate genesis, account keys, and configs for Besu and Geth.
 
-      / ___|  ___  _ __    ___  ___ (_) ___
-     | |  _  / _ \| '_ \  / _ \/ __|| |/ __|
-     | |_| ||  __/| | | ||  __/\__ \| |\__ \
-      \____| \___||_| |_|_\___||___/|_||___/
-              _____              _
-             |_   _|___    ___  | |
-               | | / _ \  / _ \ | |
-               | || (_) || (_) || |
-               |_| \___/  \___/ |_|
-
-
-
-Welcome to the Quorum Genesis Tool. This tool can be used
-to rapidly generate genesis, account keys, and configs for Besu and GoQuorum.
-
-To get started, be sure that you have read Besu and GoQuorum documentation regarding
+To get started, be sure that you have read Besu and Geth documentation regarding
 genesis config options, then answer the following questions.
 
 Which consensus algorithm will you use? Default: QBFT
@@ -68,10 +60,6 @@ Set your gas limit value: (string) Default: 0xFFFF
 
 Set your coinbase address for rewards: (string) Default: 0x0000000000000000000000000000000000000000
 
-Set your max code size value: (integer) Default: 64
-
-Set your transaction size limit value: (integer) Default: 64
-
 Choose number of validator node keys to generate: (integer) Default: 4
 
 Choose number of member node keys to generate: (integer) Default: 1
@@ -89,7 +77,7 @@ artifact files are stored at `./output/<TIMESTAMP>`, where _TIMESTAMP_ is the ti
 Alternatively, you can use cli options and skip the prompt above like so:
 
 ```
-npx quorum-genesis-tool --help
+npx zk-genesis-tool --help
 
 Options:
   --help                   Show help                                   [boolean]
@@ -112,8 +100,6 @@ Options:
                                          [string] [required] [default: "0xFFFF"]
   --coinbase               Address to pay mining rewards to
                 [string] [default: "0x0000000000000000000000000000000000000000"]
-  --maxCodeSize            Maximum contract size (kb)     [number] [default: 64]
-  --txnSizeLimit           Maximum transaction size (kb)  [number] [default: 64]
   --validators             Number of validator node keys to generate
                                                 [number] [required] [default: 4]
   --members                Number of member node keys to generate
@@ -123,39 +109,35 @@ Options:
   --accountPassword        Password for keys              [string] [default: ""]
   --outputPath             Output path relative to current directory
                                                   [string] [default: "./output"]
-  --tesseraEnabled         Whether to generate tessera keys
-                                                      [boolean] [default: false]
-  --tesseraPassword        Set password to encrypt generated keys
-                                                          [string] [default: ""]
-  --quickstartDevAccounts  Include quorum-dev-quickstart test accounts
+  --zkDevAccounts  Include ZK test accounts
                                            [boolean] [required] [default: false]
 ```
 
 To generate keys for QBFT (default) with 4 validators, 2 bootnodes and 2 members:
 
 ```
-npx quorum-genesis-tool --consensus QBFT
+npx ZK-genesis-tool --consensus QBFT
 ```
 
 To generate config for HLF Besu using QBFT
 
 ```
-npx quorum-genesis-tool --consensus qbft --chainID 400 --blockperiod 5 --requestTimeout 10 --epochLength 30000 --difficulty 1 --gasLimit '0xFFFFFF' --coinbase '0x0000000000000000000000000000000000000000' --validators 4 --members 1 --bootnodes 0
+npx ZK-genesis-tool --consensus qbft --chainID 400 --blockperiod 5 --requestTimeout 10 --epochLength 30000 --difficulty 1 --gasLimit '0xFFFFFF' --coinbase '0x0000000000000000000000000000000000000000' --validators 4 --members 1 --bootnodes 0
 ```
 
-To generate config for GoQuorum using IBFT
+To generate config for Geth using IBFT
 
 ```
-npx quorum-genesis-tool --consensus ibft --chainID 400 --blockperiod 5 --requestTimeout 10 --epochLength 30000 --difficulty 1 --gasLimit '0xFFFFFF' --coinbase '0x0000000000000000000000000000000000000000' --validators 4 --members 1 --bootnodes 0
+npx ZK-genesis-tool --consensus ibft --chainID 400 --blockperiod 5 --requestTimeout 10 --epochLength 30000 --difficulty 1 --gasLimit '0xFFFFFF' --coinbase '0x0000000000000000000000000000000000000000' --validators 4 --members 1 --bootnodes 0
 ```
 
 ### Eth Accounts and Tessera Passwords
 
 **Eth Accounts**
 
-For each node (bootnode/validator/member) an account is generated (files in their respective directories start with `account*`) to perform transactions and prefilled with a large balance. If you would like to remove or edit certain accounts from the genesis before the network has been spun up, you can find the genesis for Besu and goQuorum under each of their respective directories (`besu/genesis.json` or `goQuorum/genesis.json`). 
+For each node (bootnode/validator/member) an account is generated (files in their respective directories start with `account*`) to perform transactions and prefilled with a large balance. If you would like to remove or edit certain accounts from the genesis before the network has been spun up, you can find the genesis for Besu and Geth under each of their respective directories (`besu/genesis.json` or `Geth/genesis.json`). 
 
-If the flag `quickstartDevAccounts` is set to `true`, it will include the [quorum-dev-quickstart](https://github.com/ConsenSys/quorum-dev-quickstart) test accounts. _**It is important to remove these accounts when going into production!**_
+If the flag `zkDevAccounts` is set to `true`, it will include the [ZK-dev-quickstart](https://github.com/ConsenSys/ZK-dev-quickstart) test accounts. _**It is important to remove these accounts when going into production!**_
 
 If the flag is not specified, then it will default to `false` with the assumption that the genesis is to be used in production. You should specify the flag only if you would like the accounts in testing/dev.
 
@@ -172,10 +154,10 @@ Once generated, the output should resemble the file structure below.
   │   └──  nodekey                      # the node private key
   │   └──  nodekey.pub                  # the node's public key which is used in the enode
   │   └──  address                      # the node's address which is used to vote the validator in/out
-  │   └──  accountAddress               # GoQuorum only - the accountAddress
-  │   └──  accountKeystore              # GoQuorum only - the account's v3 keystore
-  │   └──  accountPassword              # GoQuorum only - the account's password (you would have supplied this)
-  │   └──  accountPrivateKey            # GoQuorum only - the account's private key
+  │   └──  accountAddress               # Geth only - the accountAddress
+  │   └──  accountKeystore              # Geth only - the account's v3 keystore
+  │   └──  accountPassword              # Geth only - the account's password (you would have supplied this)
+  │   └──  accountPrivateKey            # Geth only - the account's private key
   │               └── ...
   ├── validatorN
   │   └──  nodekey                      # the node private key
@@ -197,11 +179,11 @@ Once generated, the output should resemble the file structure below.
   │   └──  genesis.json                 # this genesis file for any HLF Besu nodes
   │   └──  permissioned-nodes.json      # local permissions for any HLF Besu node
   │
-  └── goQuorum
+  └── Geth
   │   └──  static-nodes.json            # a list of static nodes to make peering faster
-  │   └──  genesis.json                 # this genesis file for any GoQuorum nodes
-  │   └──  permissioned-nodes.json      # local permissions for any GoQuorum node
-  │   └──  disallowed-nodes.json        # disallowed nodes for any GoQuorum node ie this new nodes will not connect to any nodes on this list
+  │   └──  genesis.json                 # this genesis file for any Geth nodes
+  │   └──  permissioned-nodes.json      # local permissions for any Geth node
+  │   └──  disallowed-nodes.json        # disallowed nodes for any Geth node ie this new nodes will not connect to any nodes on this list
   │
   └── userData.json                     # this answers provided in a single map
   └── README.md                         # this file

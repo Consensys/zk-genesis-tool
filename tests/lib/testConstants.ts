@@ -12,8 +12,8 @@ export const TEST_QUORUM_CONFIG: QuorumConfig = {
   difficulty: 1,
   gasLimit: "0x59a5380",
   coinbase: "0x0000000000000000000000000000000000000000",
-  maxCodeSize: 255,
-  txnSizeLimit: 255,
+  // maxCodeSize: 255,
+  // txnSizeLimit: 255,
   validators: 4,
   members: 2,
   bootnodes: 2,
@@ -22,7 +22,7 @@ export const TEST_QUORUM_CONFIG: QuorumConfig = {
   outputPath: "./output",
   // tesseraEnabled: false,
   // tesseraPassword: "",
-  quickstartDevAccounts: false,
+  zkDevAccounts: false,
 };
 
 export const TEST_NODE = {

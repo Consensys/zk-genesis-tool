@@ -332,7 +332,7 @@ export function createBesuGenesis(
   if (quorumConfig.curve === CryptoCurve.r1) {
     besu.config.ecCurve = "secp256r1";
   }
-  if (quorumConfig.quickstartDevAccounts === false) {
+  if (quorumConfig.zkDevAccounts === false) {
     besu.alloc = {};
   }
   node.forEach((account) => {
@@ -394,7 +394,7 @@ export function createGethGenesis(
   geth.config.chainId = quorumConfig.chainID;
   // geth.config.maxCodeSizeConfig = [DefaultCodeSize];
   // geth.config.txnSizeLimit = quorumConfig.txnSizeLimit;
-  if (quorumConfig.quickstartDevAccounts === false) {
+  if (quorumConfig.zkDevAccounts === false) {
     geth.alloc = {};
   }
   node.forEach((account) => {

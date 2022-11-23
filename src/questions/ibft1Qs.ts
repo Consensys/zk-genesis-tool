@@ -19,12 +19,12 @@ _outputPathQuestion.transformerValidator = stringValidator(
   "./output"
 );
 
-const _quickstartDevAccountsQuestion: QuestionTree = Object.assign(
+const _zkDevAccountsQuestion: QuestionTree = Object.assign(
   {},
-  commonQs.quickstartDevAccountsQuestion
+  commonQs.zkDevAccountsQuestion
 );
-_quickstartDevAccountsQuestion.transformerValidator = getYesNoValidator(
-  _quickstartDevAccountsQuestion,
+_zkDevAccountsQuestion.transformerValidator = getYesNoValidator(
+  _zkDevAccountsQuestion,
   _outputPathQuestion,
   "n"
 );
@@ -35,7 +35,7 @@ const _accountPasswordQuestion: QuestionTree = Object.assign(
 );
 _accountPasswordQuestion.transformerValidator = passwordValidator(
   _accountPasswordQuestion,
-  _quickstartDevAccountsQuestion
+  _zkDevAccountsQuestion
 );
 
 // const _curveQuestion: QuestionTree = Object.assign({}, commonQs.curveQuestion);

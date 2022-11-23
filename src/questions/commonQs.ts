@@ -5,8 +5,8 @@ export const outputPathQuestion: QuestionTree = {
   prompt: "Set your output path for the artifacts: (default ./output)",
 };
 
-export const quickstartDevAccountsQuestion: QuestionTree = {
-  name: "quickstartDevAccounts",
+export const zkDevAccountsQuestion: QuestionTree = {
+  name: "zkDevAccounts",
   prompt: "Include zk test accounts: [y/N]",
 };
 

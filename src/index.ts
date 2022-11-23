@@ -135,7 +135,7 @@ export async function main(): Promise<void> {
         //   default: "",
         //   describe: "Set password to encrypt generated keys",
         // },
-        quickstartDevAccounts: {
+        zkDevAccounts: {
           type: "boolean",
           demandOption: true,
           default: false,
@@ -166,7 +166,7 @@ export async function main(): Promise<void> {
       outputPath: args.outputPath,
       // tesseraEnabled: args.tesseraEnabled,
       // tesseraPassword: args.tesseraPassword,
-      quickstartDevAccounts: args.quickstartDevAccounts,
+      zkDevAccounts: args.zkDevAccounts,
     };
   } else {
     const qr = new QuestionRenderer(rootQuestion);

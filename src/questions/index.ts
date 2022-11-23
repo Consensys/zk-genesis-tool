@@ -8,26 +8,21 @@ import * as raft from "./raftQs";
 
 
 const bannerText = String.raw`
-   ___
-  / _ \  _   _   ___   _ __  _   _  _ __ ___
- | | | || | | | / _ \ | '__|| | | || '_'  _  \
- | |_| || |_| || (_) || |   | |_| || | | | | |
-  \__\_\ \__,_| \___/ |_|    \__,_||_| |_| |_|
-
-      / ___|  ___  _ __    ___  ___ (_) ___
-     | |  _  / _ \| '_ \  / _ \/ __|| |/ __|
-     | |_| ||  __/| | | ||  __/\__ \| |\__ \
-      \____| \___||_| |_|_\___||___/|_||___/
-              _____              _
-             |_   _|___    ___  | |
-               | | / _ \  / _ \ | |
-               | || (_) || (_) || |
-               |_| \___/  \___/ |_|
+____  __ __               
+/_  / / //_/               
+ / /_/ ,<                  
+/___/_/|_|             _   
+/ ___/__ ___  ___ ___ (_)__
+/ (_ / -_) _ \/ -_|_-</ (_-<
+\___/\__/_//_/\__/___/_/___/
+/_  __/__  ___  / /         
+/ / / _ \/ _ \/ /          
+/_/  \___/\___/_/                   
 
 `;
 
 const leadInText = `
-\nWelcome to the Quorum Genesis Tool. This tool can be used
+\nWelcome to the ZK Genesis Tool. This tool can be used
 to rapidly generate genesis, account keys, and configs for Besu and GoQuorum.
 
 To get started, be sure that you have read Besu and GoQuorum documentation regarding
