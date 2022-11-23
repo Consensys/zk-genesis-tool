@@ -10,7 +10,8 @@
   ],
   "license": "Apache-2.0",
   "keywords": [
-    "quorum",
+    "zkevm",
+    "zk",
     "genesis",
     "geth",
     "besu",
